@@ -2,6 +2,9 @@ ip,23.106.160.174,Cobalt Strike C2
 ip,91.199.212.52,Cobalt Strike C2
 url,docns.com/OrderEntryService.asmx/AddOrderLine,Cobalt Strike C2
 url,docns.com/us/ky/louisville/312-s-fourth-st.html,Cobalt Strike C2
+url,%us/ky/louisville/312-s-fourth-st.html,Common Cobalt strike URL path: https://twitter.com/1ZRR4H/status/1350803258441392128
+url,%mega.co.nz%,Legitimate cloud storage provider commonly used for data exfiltration
+url,%mega.nz%,Legitimate cloud storage provider commonly used for data exfiltration
 filename,copy_files_srv.bat,batch script to copy cobalt strike loader to a list of servers ip addresses contained in srv.txt
 filename,copy_files_work.bat,batch script to copy cobalt strike loader to a list of endpoints ip addresses contained in work.txt
 filename,wm_start.bat,batch script using wmic to launch rundll32 with cobalt strike loader on a list of servers ip addresses contained in srv.txt
