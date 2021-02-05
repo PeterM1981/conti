@@ -1,0 +1,32 @@
+ip,23.106.160.174,Cobalt Strike C2
+ip,91.199.212.52,Cobalt Strike C2
+url,docns.com/OrderEntryService.asmx/AddOrderLine,Cobalt Strike C2
+url,docns.com/us/ky/louisville/312-s-fourth-st.html,Cobalt Strike C2
+url_path,us/ky/louisville/312-s-fourth-st.html,Common Cobalt strike URL path: https://twitter.com/1ZRR4H/status/1350803258441392128
+url_path,mega.co.nz,Legitimate cloud storage provider commonly used for data exfiltration
+url_path,mega.nz,Legitimate cloud storage provider commonly used for data exfiltration
+command_line,"rundll32.exe  C:\ProgramData\%.dll, Control_RunDLL",Cobalt Strike loader - doc.dll replaced with % wildcard
+command_line,rundll32.exe C:\Programdata\%.dll entryPoint,Cobalt Strike loader - doc.dll and sys.dll seen - replaced with % wildcard
+command_line,cmd.exe /C cp.bat,Batch script used for copying XLSX files containing the string "pas" in the filename
+command_line,cmd.exe /C C:\ProgramData\nt.bat,batch script executed by the thret actor - unknown content
+command_line,cmd.exe /C \\%\c$\programdata\1.bat,IP address replaced with % wildcard - command used to execute unknown batch script on remote computer
+command_line,cmd.exe /C wmic /node: % process call create "rundll32.exe C:\Programdata\%.dll entryPoint",IP address and dll filename replaced with % wildcard - command used to deploy cobalt strike loader on remote computer
+command_line,cmd.exe /C portscan % 5000-6000 icmp 1024,Multiple IP comma seperated IP ranaged replaced with % wildcard
+command_line,ping % -n 1,ping command - computer name replaced with % wildcard
+command_line,cmd.exe /C time,command to check computers local time
+command_line,cmd.exe /C nltest /DOMAIN_TRUSTS,command to check domain trusts
+command_line,cmd.exe /C net group "domain Admins" /domain,command to list domain admins
+command_line,cmd.exe /C nltest /dclist:,command to list domain controllers
+command_line,rclone.exe  copy % remote:% -q --ignore-existing --auto-confirm --multi-thread-streams 12 --transfers 12,Legitiate RClone tool used for exfiltration - source file path of files to copy and destination file path replaced with % wildcards
+filename,copy_files_srv.bat,batch script to copy cobalt strike loader to a list of servers ip addresses contained in srv.txt
+filename,copy_files_work.bat,batch script to copy cobalt strike loader to a list of endpoints ip addresses contained in work.txt
+filename,wm_start.bat,batch script using wmic to launch rundll32 with cobalt strike loader on a list of servers ip addresses contained in srv.txt
+filename,wm_start_work.bat,batch script using wmic to launch rundll32 with cobalt strike loader on a list of endpoints ip addresses contained in work.txt
+filename,srv.txt,list of server ip addresses on the local network
+filename,work.txt,list of endpoint ip addresses on the local network
+filename,cp.bat,batch script to copy files that all contain the string "pas" in their filename
+sha256,2cd05616874445c655eaf723c549f35cc6c379b1877750788adf2c5d6b86cd09,cobalt strike loader
+sha256,1bf119de536f4826ede7b64fbf836fcb838e5cc96d962ed5dbf4c269ac98e9b6,cobalt strike loader
+sha256,9b5d1f6a94ce122671a5956b2016e879428c74964174739b68397b6384f6ee8b,RClone (legitimate)
+command_line,for /f %%i in (%.txt) do copy "C:\ProgramData\%.dll" \\%%i\c$\ProgramData\%.dll,command from batch script to copy cobalt strike loader - filenames replaced with % wildcard
+command_line,for /f %%i in (%.txt) do wmic /node: %%i process call create "rundll32.exe C:\Programdata\%.dll entryPoint",commamd from batch script to use wmic to run cobalt strike loader - filenames replaced with % wildcard
